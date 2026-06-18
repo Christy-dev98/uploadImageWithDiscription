@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Hello, World!</title>
-   <!-- Bootstrap -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <!-- Bootstrap -->
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -14,440 +17,500 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
 
-      <style>
-        /* ==================================================
+
+<style>
+    /* ==========================================
    MODAL
-================================================== */
+========================================== */
 
-.image-modal{
+.return-modal {
 
-    background:#1f2937;
-    color:#fff;
+    background: #1f2937;
+    color: #fff;
 
-    border:1px solid #334155;
-    border-radius:16px;
+    border: 1px solid #334155;
+    border-radius: 16px;
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.image-modal .modal-header{
+.return-modal .modal-header {
 
-    border-bottom:1px solid #334155;
+    background: #1f2937;
 
-    background:#1f2937;
+    border-bottom: 1px solid #334155;
 }
 
-.image-modal .modal-footer{
+.return-modal .modal-footer {
 
-    border-top:1px solid #334155;
+    background: #1f2937;
 
-    background:#1f2937;
+    border-top: 1px solid #334155;
 }
 
-.image-modal .modal-title{
+.return-modal .modal-title {
 
-    font-weight:600;
+    font-weight: 600;
 }
 
-.image-modal .close{
+.return-modal .close {
 
-    opacity:.8;
+    color: white;
+    opacity: .8;
 }
 
-.image-modal .close:hover{
+.return-modal .close:hover {
 
-    opacity:1;
+    opacity: 1;
 }
 
-/* ==================================================
+/* ==========================================
    IMAGE CONTAINER
-================================================== */
+========================================== */
 
-.image-container{
+.image-container {
 
-    position:relative;
+    position: relative;
 
-    width:100%;
-    height:340px;
+    width: 100%;
+    height: 360px;
 
-    border-radius:14px;
+    background: #0f172a;
 
-    overflow:hidden;
+    border: 1px solid #334155;
+    border-radius: 12px;
 
-    background:#0f172a;
-
-    border:1px solid #334155;
+    overflow: hidden;
 }
 
-/* ==================================================
+/* ==========================================
    UPLOAD AREA
-================================================== */
+========================================== */
 
-#uploadArea{
+#uploadArea {
 
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    cursor:pointer;
+    text-align: center;
 
-    border:2px dashed #475569;
+    border: 2px dashed #475569;
 
-    transition:.3s;
+    cursor: pointer;
+
+    transition: all .25s ease;
 }
 
-#uploadArea.drag-over{
+#uploadArea.drag-over {
 
-    border-color:#3b82f6;
+    border-color: #3b82f6;
 
-    background:rgba(37,99,235,.08);
+    background: rgba(37,99,235,.08);
 }
 
-.upload-content{
+.upload-content {
 
-    text-align:center;
+    padding: 20px;
 }
 
-.upload-icon{
+.upload-icon {
 
-    font-size:50px;
+    font-size: 48px;
 
-    color:#60a5fa;
+    color: #60a5fa;
 
-    margin-bottom:15px;
+    margin-bottom: 12px;
 }
 
-.upload-content h5{
+.upload-content h5 {
 
-    font-weight:600;
+    font-weight: 600;
 
-    margin-bottom:10px;
+    margin-bottom: 12px;
 }
 
-.upload-content p{
+.upload-content p {
 
-    color:#94a3b8;
+    color: #94a3b8;
 
-    margin-bottom:0;
+    margin-bottom: 10px;
 }
 
-/* ==================================================
-   PREVIEW AREA
-================================================== */
+.or-text {
 
-#previewArea{
+    color: #94a3b8;
 
-    width:100%;
-    height:100%;
+    margin-bottom: 12px;
 }
 
-#previewImage{
+/* ==========================================
+   PREVIEW
+========================================== */
 
-    width:100%;
-    height:100%;
+#previewArea {
 
-    object-fit:contain;
-
-    display:block;
+    width: 100%;
+    height: 100%;
 }
 
-/* ==================================================
-   THREE DOT MENU
-================================================== */
+#previewImage {
 
-.image-dropdown{
+    width: 100%;
+    height: 100%;
 
-    position:absolute;
+    object-fit: contain;
 
-    top:10px;
-    right:10px;
-
-    z-index:9999;
+    display: block;
 }
 
-#imageMenuBtn{
+/* ==========================================
+   3 DOT MENU
+========================================== */
 
-    width:38px;
-    height:38px;
+.image-dropdown {
 
-    border-radius:50%;
+    position: absolute;
 
-    background:rgba(15,23,42,.85);
+    top: 10px;
+    right: 10px;
 
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    text-decoration:none;
-
-    border:none;
+    z-index: 9999;
 }
 
-#imageMenuBtn:hover{
+#imageMenuBtn {
 
-    background:#2563eb;
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: rgba(15,23,42,.9);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
 }
 
-#imageMenuBtn i{
+#imageMenuBtn:hover {
 
-    color:#fff;
+    background: #2563eb;
 }
 
-/* ==================================================
+#imageMenuBtn i {
+
+    color: white;
+}
+
+/* ==========================================
    DROPDOWN
-================================================== */
+========================================== */
 
-.dropdown-menu{
+.dropdown-menu {
 
-    background:#111827;
+    background: #111827;
 
-    border:1px solid #334155;
+    border: 1px solid #334155;
 
-    min-width:180px;
+    min-width: 180px;
 }
 
-.dropdown-item{
+.dropdown-item {
 
-    color:#e5e7eb;
-
-    transition:.2s;
+    color: #e5e7eb;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
 
-    background:#2563eb;
+    background: #2563eb;
 
-    color:white;
+    color: white;
 }
 
-.dropdown-divider{
+.dropdown-divider {
 
-    border-top:1px solid #334155;
+    border-top: 1px solid #334155;
 }
 
-/* ==================================================
-   CROP ACTION AREA
-================================================== */
+/* ==========================================
+   MOBILE UPLOAD MENU
+========================================== */
 
-#cropActionArea{
+#uploadOptionMenu {
 
-    padding-top:5px;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 260px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    z-index: 2000;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
 
-#cropActionArea .btn{
+#uploadOptionMenu button {
 
-    min-width:130px;
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    text-align: left;
+
+    padding: 14px 18px;
+
+    transition: .2s;
 }
 
-/* ==================================================
+#uploadOptionMenu button:hover {
+
+    background: #2563eb;
+}
+
+#uploadOptionMenu button:first-child {
+
+    border-bottom: 1px solid #334155;
+}
+
+/* ==========================================
+   CROP ACTIONS
+========================================== */
+
+#cropActionArea .btn {
+
+    min-width: 140px;
+}
+
+/* ==========================================
    TEXTAREA
-================================================== */
+========================================== */
 
-.damage-textarea{
+.damage-textarea {
 
-    background:#0f172a !important;
+    background: #0f172a !important;
 
-    color:white !important;
+    color: white !important;
 
-    border:1px solid #475569;
+    border: 1px solid #475569;
 
-    border-radius:10px;
+    border-radius: 10px;
 
-    resize:none;
+    resize: none;
 }
 
-.damage-textarea:focus{
+.damage-textarea::placeholder {
 
-    background:#0f172a !important;
-
-    color:white !important;
-
-    border-color:#3b82f6;
-
-    box-shadow:none;
+    color: #94a3b8;
 }
 
-.damage-textarea::placeholder{
+.damage-textarea:focus {
 
-    color:#94a3b8;
+    background: #0f172a !important;
+
+    color: white !important;
+
+    border-color: #3b82f6;
+
+    box-shadow: none;
 }
 
-/* ==================================================
-   BUTTONS
-================================================== */
-
-.btn-primary{
-
-    background:#2563eb;
-
-    border-color:#2563eb;
-}
-
-.btn-primary:hover{
-
-    background:#1d4ed8;
-
-    border-color:#1d4ed8;
-}
-
-.btn-secondary{
-
-    background:#64748b;
-
-    border-color:#64748b;
-}
-
-/* ==================================================
+/* ==========================================
    CROPPER
-================================================== */
+========================================== */
 
-.cropper-view-box{
+.cropper-view-box {
 
-    outline:2px solid #3b82f6;
+    outline: 2px solid #3b82f6;
 }
 
-.cropper-line{
+.cropper-line {
 
-    background:#3b82f6;
+    background: #3b82f6;
 }
 
-.cropper-point{
+.cropper-point {
 
-    background:#3b82f6;
+    background: #3b82f6;
 }
 
-/* ==================================================
+/* ==========================================
+   DESKTOP / MOBILE VISIBILITY
+========================================== */
+
+.desktop-upload-options {
+
+    display: block;
+}
+
+.mobile-upload-text {
+
+    display: none;
+
+    color: #94a3b8;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+    .image-container {
+
+        height: 300px;
+    }
+}
+
+/* ==========================================
    MOBILE
-================================================== */
+========================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-     .modal-dialog {
+    .modal-dialog {
+
         margin: 10px;
+
         max-width: calc(100% - 20px);
     }
 
     .image-container {
-        height: 280px;
+
+        height: 260px;
     }
 
-    .image-modal{
+    .desktop-upload-options {
 
-        min-height:100vh;
-
-        border-radius:0;
+        display: none;
     }
 
-   
+    .mobile-upload-text {
 
-    .upload-icon{
-
-        font-size:40px;
+        display: block;
     }
 
-    .upload-content h5{
+    .upload-icon {
 
-        font-size:16px;
+        font-size: 38px;
     }
 
-    .upload-content p{
+    .upload-content h5 {
 
-        font-size:13px;
+        font-size: 18px;
     }
 
-    .dropdown-menu{
+    #cropActionArea .btn {
 
-        min-width:150px;
+        width: 100%;
+
+        margin-bottom: 10px;
     }
 
-    #cropActionArea .btn{
+    #cropActionArea .btn:last-child {
 
-        width:100%;
-
-        margin-bottom:10px;
+        margin-bottom: 0;
     }
 
-    #cropActionArea .btn:last-child{
+    .modal-footer {
 
-        margin-bottom:0;
+        display: flex;
+    }
+
+    .modal-footer .btn {
+
+        flex: 1;
     }
 }
 
-/* ==================================================
+/* ==========================================
    SMALL PHONES
-================================================== */
+========================================== */
 
-@media(max-width:480px){
+@media (max-width: 480px) {
 
-    .image-container{
+    .image-container {
 
-        height:220px;
+        height: 220px;
     }
 
-    .upload-icon{
+    .upload-content h5 {
 
-        font-size:34px;
+        font-size: 16px;
     }
 
-    .upload-content h5{
+    .mobile-upload-text {
 
-        font-size:15px;
+        font-size: 13px;
     }
 
-    .upload-content p{
+    #uploadOptionMenu {
 
-        font-size:12px;
+        width: 220px;
     }
 }
 
-/* ==================================================
+/* ==========================================
    LARGE DESKTOP
-================================================== */
+========================================== */
 
-@media(min-width:1200px){
+@media (min-width: 1200px) {
 
-    .image-container{
+    .image-container {
 
-        height:400px;
+        height: 420px;
     }
 }
-      </style>
-  </head>
-  <body>
+</style>
+<!-- Trigger Button -->
+<div class="container text-center mt-5">
 
-  <!-- OPEN MODAL TRIGGER RUNTIME BUTTON -->
+    <button class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#returnProtocolModal">
 
-    <div class="container text-center mt-5">
+        Open Return Gear
 
-        <button class="btn btn-primary px-4 py-2" data-toggle="modal" data-target="#uploadImageComentModal">
+    </button>
 
-            upload
+</div>
 
-        </button>
-
-    </div>
-
-     <!-- Modal -->
+<!-- Return Modal -->
 <div class="modal fade"
-     id="uploadImageComentModal"
+     id="returnProtocolModal"
      tabindex="-1"
      role="dialog">
 
     <div class="modal-dialog modal-lg modal-dialog-centered"
          role="document">
 
-        <div class="modal-content image-modal">
+        <div class="modal-content return-modal">
 
             <!-- Header -->
             <div class="modal-header">
 
                 <h5 class="modal-title">
-                   upload image
+                    Return Gear
                 </h5>
 
                 <button type="button"
@@ -463,22 +526,31 @@
             <!-- Body -->
             <div class="modal-body">
 
-                <!-- Hidden File Input -->
+                <!-- Hidden Inputs -->
+
                 <input type="file"
-                       id="imageInput"
+                       id="cameraInput"
                        accept="image/*"
                        capture="environment"
                        hidden>
 
-                <!-- Upload / Preview Area -->
+                <input type="file"
+                       id="deviceInput"
+                       accept="image/*"
+                       hidden>
+
+                <!-- Image Container -->
+
                 <div class="image-container">
 
                     <!-- 3 Dot Menu -->
+
                     <div class="dropdown image-dropdown">
 
                         <button class="btn btn-link text-white p-0"
                                 id="imageMenuBtn"
-                                data-toggle="dropdown">
+                                data-toggle="dropdown"
+                                type="button">
 
                             <i class="fas fa-ellipsis-v"></i>
 
@@ -486,27 +558,27 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <button class="dropdown-item"
-                                    id="rotateBtn"
-                                    type="button">
+                            <button type="button"
+                                    class="dropdown-item"
+                                    id="rotateBtn">
 
                                 <i class="fas fa-sync-alt mr-2"></i>
                                 Rotate
 
                             </button>
 
-                            <button class="dropdown-item"
-                                    id="cropBtn"
-                                    type="button">
+                            <button type="button"
+                                    class="dropdown-item"
+                                    id="cropBtn">
 
                                 <i class="fas fa-crop-alt mr-2"></i>
                                 Crop
 
                             </button>
 
-                            <button class="dropdown-item"
-                                    id="undoBtn"
-                                    type="button">
+                            <button type="button"
+                                    class="dropdown-item"
+                                    id="undoBtn">
 
                                 <i class="fas fa-undo mr-2"></i>
                                 Undo
@@ -515,9 +587,9 @@
 
                             <div class="dropdown-divider"></div>
 
-                            <button class="dropdown-item text-danger"
-                                    id="removeBtn"
-                                    type="button">
+                            <button type="button"
+                                    class="dropdown-item text-danger"
+                                    id="removeBtn">
 
                                 <i class="fas fa-trash mr-2"></i>
                                 Remove
@@ -529,6 +601,7 @@
                     </div>
 
                     <!-- Upload Area -->
+
                     <div id="uploadArea">
 
                         <div class="upload-content">
@@ -536,29 +609,82 @@
                             <i class="fas fa-camera upload-icon"></i>
 
                             <h5>
-                                Upload Gear Image
+                                Upload Damage Image
                             </h5>
 
-                            <p>
-                                Drag & Drop or Tap to Upload
-                            </p>
+                            <!-- Desktop -->
+
+                            <div class="desktop-upload-options">
+
+                                <p>
+                                    Drag & Drop Image Here
+                                </p>
+
+                                <div class="or-text">
+                                    OR
+                                </div>
+
+                                <button type="button"
+                                        id="desktopUploadBtn"
+                                        class="btn btn-primary btn-sm">
+
+                                    This Device
+
+                                </button>
+
+                            </div>
+
+                            <!-- Mobile -->
+
+                            <div class="mobile-upload-text">
+
+                                Tap to Upload
+
+                            </div>
 
                         </div>
 
                     </div>
 
                     <!-- Preview Area -->
+
                     <div id="previewArea"
                          class="d-none">
 
                         <img id="previewImage"
-                             alt="Preview">
+                             alt="Preview Image">
+
+                    </div>
+
+                    <!-- Mobile Upload Menu -->
+
+                    <div id="uploadOptionMenu"
+                         class="d-none">
+
+                        <button type="button"
+                                id="capturePhotoBtn">
+
+                            <i class="fas fa-camera mr-2"></i>
+
+                            Capture Photo
+
+                        </button>
+
+                        <button type="button"
+                                id="devicePhotoBtn">
+
+                            <i class="fas fa-folder-open mr-2"></i>
+
+                            This Device
+
+                        </button>
 
                     </div>
 
                 </div>
 
-                <!-- Crop Buttons -->
+                <!-- Crop Actions -->
+
                 <div id="cropActionArea"
                      class="mt-3 text-center d-none">
 
@@ -581,12 +707,13 @@
                 </div>
 
                 <!-- Description -->
+
                 <div class="mt-4">
 
                     <textarea
                         id="damageDescription"
                         class="form-control damage-textarea"
-                        rows="5"
+                        rows="4"
                         placeholder="Describe the damage..."></textarea>
 
                 </div>
@@ -594,6 +721,7 @@
             </div>
 
             <!-- Footer -->
+
             <div class="modal-footer">
 
                 <button type="button"
@@ -606,9 +734,9 @@
 
                 <button type="button"
                         class="btn btn-primary"
-                        id="submitimageBtn">
+                        id="submitReturnBtn">
 
-                    Submit
+                    Submit Return
 
                 </button>
 
@@ -620,559 +748,609 @@
 
 </div>
 
-     <!-- Required Scripts -->
+<!-- Required Scripts -->
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+  <script>
+    // ========================================
+// Global Variables
+// ========================================
 
-<script>
-    (() => {
+var cropper = null;
 
-    const state = {
-        cropper: null,
-        originalImage: null,
-        currentFileName: null,
-        rotation: 0
-    };
+var originalImage = null;
 
-    const el = {
+var currentFileName = null;
 
-        imageInput:
-            document.getElementById('imageInput'),
+// ========================================
+// Cached Elements
+// ========================================
 
-        uploadArea:
-            document.getElementById('uploadArea'),
-
-        previewArea:
-            document.getElementById('previewArea'),
-
-        previewImage:
-            document.getElementById('previewImage'),
-
-        cropActionArea:
-            document.getElementById('cropActionArea'),
-
-        applyCropBtn:
-            document.getElementById('applyCropBtn'),
-
-        cancelCropBtn:
-            document.getElementById('cancelCropBtn'),
-
-        rotateBtn:
-            document.getElementById('rotateBtn'),
-
-        cropBtn:
-            document.getElementById('cropBtn'),
-
-        undoBtn:
-            document.getElementById('undoBtn'),
-
-        removeBtn:
-            document.getElementById('removeBtn'),
-
-        submitBtn:
-            document.getElementById('submitimageBtn'),
-
-        description:
-            document.getElementById('damageDescription')
-    };
-
-    /* -----------------------------
-       Upload
-    ----------------------------- */
-
-    el.uploadArea.addEventListener(
-        'click',
-        () => el.imageInput.click()
+var previewImage =
+    document.getElementById(
+        'previewImage'
     );
 
-    el.imageInput.addEventListener(
-        'change',
-        e => {
+// ========================================
+// Page Ready
+// ========================================
 
-            const file =
-                e.target.files?.[0];
+$(document).ready(function () {
 
-            if(!file)
-                image;
+    registerEvents();
 
-            loadImage(file);
+});
+
+// ========================================
+// Register Events
+// ========================================
+
+function registerEvents() {
+
+    registerUploadEvents();
+
+    registerMenuEvents();
+
+    registerCropEvents();
+
+    registerSubmitEvent();
+}
+
+// ========================================
+// Upload Events
+// ========================================
+
+function registerUploadEvents() {
+
+    // Desktop Upload Button
+
+    $('#desktopUploadBtn').click(function (e) {
+
+        e.stopPropagation();
+
+        $('#deviceInput').click();
+
+    });
+
+    // Mobile Upload Area
+
+    $('#uploadArea').click(function () {
+
+        if (window.innerWidth <= 768) {
+
+            $('#uploadOptionMenu')
+                .removeClass('d-none');
         }
-    );
+    });
 
-    /* -----------------------------
-       Drag Drop
-    ----------------------------- */
+    // Capture Photo
 
-    [
-        'dragenter',
-        'dragover'
-    ].forEach(evt => {
+    $('#capturePhotoBtn').click(function () {
 
-        el.uploadArea.addEventListener(
-            evt,
-            e => {
+        $('#uploadOptionMenu')
+            .addClass('d-none');
 
-                e.preventDefault();
-
-                el.uploadArea.classList.add(
-                    'drag-over'
-                );
-
-            }
-        );
+        $('#cameraInput').click();
 
     });
 
-    [
+    // Upload From Device
+
+    $('#devicePhotoBtn').click(function () {
+
+        $('#uploadOptionMenu')
+            .addClass('d-none');
+
+        $('#deviceInput').click();
+
+    });
+
+    // Close Menu On Outside Click
+
+    $(document).click(function (e) {
+
+        if (
+            !$(e.target).closest(
+                '#uploadOptionMenu, #uploadArea'
+            ).length
+        ) {
+
+            $('#uploadOptionMenu')
+                .addClass('d-none');
+        }
+
+    });
+
+    // Camera Input
+
+    $('#cameraInput').change(function () {
+
+        var file =
+            this.files[0];
+
+        if (!file)
+            return;
+
+        loadImage(file);
+
+    });
+
+    // Device Input
+
+    $('#deviceInput').change(function () {
+
+        var file =
+            this.files[0];
+
+        if (!file)
+            return;
+
+        loadImage(file);
+
+    });
+
+    registerDragDrop();
+}
+
+// ========================================
+// Drag Drop
+// ========================================
+
+function registerDragDrop() {
+
+    var uploadArea =
+        document.getElementById(
+            'uploadArea'
+        );
+
+    uploadArea.addEventListener(
+        'dragover',
+        function (e) {
+
+            e.preventDefault();
+
+            $('#uploadArea')
+                .addClass(
+                    'drag-over'
+                );
+
+        });
+
+    uploadArea.addEventListener(
         'dragleave',
-        'drop'
-    ].forEach(evt => {
+        function () {
 
-        el.uploadArea.addEventListener(
-            evt,
-            e => {
-
-                e.preventDefault();
-
-                el.uploadArea.classList.remove(
+            $('#uploadArea')
+                .removeClass(
                     'drag-over'
                 );
 
-            }
-        );
+        });
 
-    });
-
-    el.uploadArea.addEventListener(
+    uploadArea.addEventListener(
         'drop',
-        e => {
+        function (e) {
 
-            const file =
-                e.dataTransfer.files?.[0];
+            e.preventDefault();
 
-            if(!file)
+            $('#uploadArea')
+                .removeClass(
+                    'drag-over'
+                );
+
+            var file =
+                e.dataTransfer.files[0];
+
+            if (!file)
                 return;
 
             loadImage(file);
 
-        }
-    );
+        });
+}
 
-    /* -----------------------------
-       Load Image
-    ----------------------------- */
+// ========================================
+// Load Image
+// ========================================
 
-    function loadImage(file){
+function loadImage(file) {
 
-        if(
-            !file.type.startsWith(
-                'image/'
-            )
-        ){
-            alert(
-                'Please upload an image.'
-            );
+    if (
+        !file.type.startsWith(
+            'image/'
+        )
+    ) {
 
-            return;
-        }
+        alert(
+            'Please upload an image.'
+        );
 
-        state.rotation = 0;
-
-        state.currentFileName =
-            getFileName(file);
-
-        const reader =
-            new FileReader();
-
-        reader.onload =
-            e => {
-
-                state.originalImage =
-                    e.target.result;
-
-                showPreview(
-                    e.target.result
-                );
-
-            };
-
-        reader.readAsDataURL(file);
+        return;
     }
 
-    /* -----------------------------
-       Preview
-    ----------------------------- */
+    currentFileName =
+        getFileName(file);
 
-    function showPreview(src){
+    var reader =
+        new FileReader();
+
+    reader.onload =
+        function (e) {
+
+            originalImage =
+                e.target.result;
+
+            showPreview(
+                originalImage
+            );
+
+        };
+
+    reader.readAsDataURL(file);
+}
+
+// ========================================
+// Preview
+// ========================================
+
+function showPreview(src) {
+
+    destroyCropper();
+
+    previewImage.src =
+        src;
+
+    $('#uploadArea')
+        .addClass('d-none');
+
+    $('#previewArea')
+        .removeClass('d-none');
+
+    $('#cropActionArea')
+        .addClass('d-none');
+}
+
+// ========================================
+// Menu Events
+// ========================================
+
+function registerMenuEvents() {
+
+    $('#rotateBtn').click(function () {
+
+        rotateImage();
+
+    });
+
+    $('#cropBtn').click(function () {
+
+        startCrop();
+
+    });
+
+    $('#undoBtn').click(function () {
+
+        undoChanges();
+
+    });
+
+    $('#removeBtn').click(function () {
+
+        removeImage();
+
+    });
+}
+
+// ========================================
+// Rotate
+// ========================================
+
+function rotateImage() {
+
+    if (!previewImage.src)
+        return;
+
+    var img =
+        new Image();
+
+    img.onload =
+        function () {
+
+            var canvas =
+                document.createElement(
+                    'canvas'
+                );
+
+            var ctx =
+                canvas.getContext(
+                    '2d'
+                );
+
+            canvas.width =
+                img.height;
+
+            canvas.height =
+                img.width;
+
+            ctx.translate(
+                canvas.width / 2,
+                canvas.height / 2
+            );
+
+            ctx.rotate(
+                Math.PI / 2
+            );
+
+            ctx.drawImage(
+                img,
+                -img.width / 2,
+                -img.height / 2
+            );
+
+            showPreview(
+                canvas.toDataURL(
+                    'image/jpeg',
+                    0.95
+                )
+            );
+        };
+
+    img.src =
+        previewImage.src;
+}
+
+// ========================================
+// Crop
+// ========================================
+
+function registerCropEvents() {
+
+    $('#applyCropBtn').click(function () {
+
+        applyCrop();
+
+    });
+
+    $('#cancelCropBtn').click(function () {
 
         destroyCropper();
 
-        el.previewImage.src = src;
+        $('#cropActionArea')
+            .addClass('d-none');
 
-        el.uploadArea.classList.add(
-            'd-none'
-        );
+    });
+}
 
-        el.previewArea.classList.remove(
-            'd-none'
-        );
+function startCrop() {
 
-        el.cropActionArea.classList.add(
-            'd-none'
-        );
-    }
+    if (
+        cropper ||
+        !previewImage.src
+    )
+        return;
 
-    /* -----------------------------
-       Rotate
-    ----------------------------- */
-
-    el.rotateBtn.addEventListener(
-        'click',
-        rotateImage
-    );
-
-    function rotateImage(){
-
-        if(
-            !el.previewImage.src
-        )
-            return;
-
-        state.rotation += 90;
-
-        const img =
-            new Image();
-
-        img.onload =
-            () => {
-
-                const canvas =
-                    document.createElement(
-                        'canvas'
-                    );
-
-                const ctx =
-                    canvas.getContext(
-                        '2d'
-                    );
-
-                canvas.width =
-                    img.height;
-
-                canvas.height =
-                    img.width;
-
-                ctx.translate(
-                    canvas.width / 2,
-                    canvas.height / 2
-                );
-
-                ctx.rotate(
-                    Math.PI / 2
-                );
-
-                ctx.drawImage(
-                    img,
-                    -img.width/2,
-                    -img.height/2
-                );
-
-                showPreview(
-                    canvas.toDataURL(
-                        'image/jpeg',
-                        0.95
-                    )
-                );
-
-            };
-
-        img.src =
-            el.previewImage.src;
-    }
-
-    /* -----------------------------
-       Crop
-    ----------------------------- */
-
-    el.cropBtn.addEventListener(
-        'click',
-        startCrop
-    );
-
-    function startCrop(){
-
-        if(
-            !el.previewImage.src
-        )
-            return;
-
-        if(state.cropper)
-            return;
-
-        state.cropper =
-            new Cropper(
-                el.previewImage,
-                {
-                    viewMode:1,
-                    autoCropArea:1,
-                    responsive:true
-                }
-            );
-
-        el.cropActionArea.classList.remove(
-            'd-none'
-        );
-    }
-
-    el.applyCropBtn.addEventListener(
-        'click',
-        applyCrop
-    );
-
-    function applyCrop(){
-
-        if(
-            !state.cropper
-        )
-            return;
-
-        const canvas =
-            state.cropper
-            .getCroppedCanvas({
-                imageSmoothingEnabled:true,
-                imageSmoothingQuality:'high'
+    cropper =
+        new Cropper(
+            previewImage,
+            {
+                viewMode: 1,
+                autoCropArea: 1,
+                responsive: true
             });
 
-        showPreview(
-            canvas.toDataURL(
-                'image/jpeg',
-                0.95
-            )
-        );
+    $('#cropActionArea')
+        .removeClass('d-none');
+}
+
+function applyCrop() {
+
+    if (!cropper)
+        return;
+
+    var canvas =
+        cropper.getCroppedCanvas();
+
+    showPreview(
+        canvas.toDataURL(
+            'image/jpeg',
+            0.95
+        )
+    );
+}
+
+// ========================================
+// Undo
+// ========================================
+
+function undoChanges() {
+
+    if (!originalImage)
+        return;
+
+    showPreview(
+        originalImage
+    );
+}
+
+// ========================================
+// Remove
+// ========================================
+
+function removeImage() {
+
+    destroyCropper();
+
+    originalImage =
+        null;
+
+    currentFileName =
+        null;
+
+    previewImage.src =
+        '';
+
+    $('#cameraInput').val('');
+
+    $('#deviceInput').val('');
+
+    $('#previewArea')
+        .addClass('d-none');
+
+    $('#uploadArea')
+        .removeClass('d-none');
+}
+
+// ========================================
+// Destroy Cropper
+// ========================================
+
+function destroyCropper() {
+
+    if (!cropper)
+        return;
+
+    cropper.destroy();
+
+    cropper = null;
+}
+
+// ========================================
+// File Name
+// ========================================
+
+function getFileName(file) {
+
+    var name =
+        file.name.toLowerCase();
+
+    if (
+        name !== 'image.jpg' &&
+        name !== 'image.jpeg'
+    ) {
+
+        return file.name;
     }
 
-    el.cancelCropBtn.addEventListener(
-        'click',
-        () => {
+    var now =
+        new Date();
 
-            destroyCropper();
+    function pad(value) {
 
-            el.cropActionArea.classList.add(
-                'd-none'
-            );
-
-        }
-    );
-
-    /* -----------------------------
-       Undo
-       image To Original Upload
-    ----------------------------- */
-
-    el.undoBtn.addEventListener(
-        'click',
-        () => {
-
-            if(
-                !state.originalImage
-            )
-                return;
-
-            showPreview(
-                state.originalImage
-            );
-
-        }
-    );
-
-    /* -----------------------------
-       Remove
-    ----------------------------- */
-
-    el.removeBtn.addEventListener(
-        'click',
-        () => {
-
-            destroyCropper();
-
-            state.originalImage =
-                null;
-
-            state.rotation = 0;
-
-            state.currentFileName =
-                null;
-
-            el.previewImage.src =
-                '';
-
-            el.imageInput.value =
-                '';
-
-            el.previewArea.classList.add(
-                'd-none'
-            );
-
-            el.uploadArea.classList.remove(
-                'd-none'
-            );
-        }
-    );
-
-    /* -----------------------------
-       Cropper Cleanup
-    ----------------------------- */
-
-    function destroyCropper(){
-
-        if(!state.cropper)
-            return;
-
-        state.cropper.destroy();
-
-        state.cropper = null;
+        return String(value)
+            .padStart(2, '0');
     }
 
-    /* -----------------------------
-       File Naming
-    ----------------------------- */
+    return 'damage_' +
+        now.getFullYear() +
+        pad(now.getMonth() + 1) +
+        pad(now.getDate()) +
+        '_' +
+        pad(now.getHours()) +
+        pad(now.getMinutes()) +
+        pad(now.getSeconds()) +
+        '.jpg';
+}
 
-    function getFileName(file){
+// ========================================
+// Submit
+// ========================================
 
-        const name =
-            file.name.toLowerCase();
+function registerSubmitEvent() {
 
-        const cameraNames = [
-            'image.jpg',
-            'image.jpeg',
-            'photo.jpg'
-        ];
+    $('#submitReturnBtn')
+        .click(function () {
 
-        if(
-            !cameraNames.includes(name)
-        ){
-            return file.name;
-        }
+            submitReturn();
 
-        const now =
-            new Date();
+        });
+}
 
-        const pad =
-            v => String(v)
-            .padStart(2,'0');
+async function submitReturn() {
 
-        return `damage_${
-            now.getFullYear()
-        }${
-            pad(now.getMonth()+1)
-        }${
-            pad(now.getDate())
-        }_${
-            pad(now.getHours())
-        }${
-            pad(now.getMinutes())
-        }${
-            pad(now.getSeconds())
-        }.jpg`;
+    var description =
+        $('#damageDescription')
+            .val()
+            .trim();
+
+    if (!previewImage.src) {
+
+        alert(
+            'Please upload an image.'
+        );
+
+        return;
     }
 
-    /* -----------------------------
-       Submit
-    ----------------------------- */
+    if (!description) {
 
-    el.submitBtn.addEventListener(
-        'click',
-        submitimage
+        alert(
+            'Please enter a description.'
+        );
+
+        return;
+    }
+
+    var blob =
+        await imageToBlob(
+            previewImage.src
+        );
+
+    var formData =
+        new FormData();
+
+    formData.append(
+        'damageImage',
+        blob,
+        currentFileName
     );
 
-    async function submitimage(){
+    formData.append(
+        'description',
+        description
+    );
 
-        const description =
-            el.description.value.trim();
+    console.log(
+        'Ready To Upload'
+    );
 
-        if(
-            !el.previewImage.src
-        ){
-            alert(
-                'Please upload an image.'
-            );
+    console.log(
+        currentFileName
+    );
 
-            return;
-        }
+    // AJAX call here
+}
 
-        if(!description){
+// ========================================
+// Convert Image To Blob
+// ========================================
 
-            alert(
-                'Please enter a description.'
-            );
+function imageToBlob(src) {
 
-            return;
-        }
+    return new Promise(
+        function (resolve) {
 
-        const blob =
-            await imageToBlob(
-                el.previewImage.src
-            );
+            var img =
+                new Image();
 
-        const formData =
-            new FormData();
+            img.onload =
+                function () {
 
-        formData.append(
-            'damageImage',
-            blob,
-            state.currentFileName
-        );
+                    var canvas =
+                        document.createElement(
+                            'canvas'
+                        );
 
-        formData.append(
-            'description',
-            description
-        );
+                    canvas.width =
+                        img.naturalWidth;
 
-        /*
-        await fetch(
-            '/Gear/imageGear',
-            {
-                method:'POST',
-                body:formData
-            }
-        );
-        */
+                    canvas.height =
+                        img.naturalHeight;
 
-        console.log(
-            'Ready For Upload'
-        );
-
-        console.log(
-            state.currentFileName
-        );
-    }
-
-    function imageToBlob(src){
-
-        return new Promise(
-            resolve => {
-
-                const img =
-                    new Image();
-
-                img.onload =
-                    () => {
-
-                        const canvas =
-                            document.createElement(
-                                'canvas'
-                            );
-
-                        canvas.width =
-                            img.naturalWidth;
-
-                        canvas.height =
-                            img.naturalHeight;
-
-                        canvas
+                    canvas
                         .getContext('2d')
                         .drawImage(
                             img,
@@ -1180,19 +1358,16 @@
                             0
                         );
 
-                        canvas.toBlob(
-                            resolve,
-                            'image/jpeg',
-                            0.95
-                        );
-                    };
+                    canvas.toBlob(
+                        resolve,
+                        'image/jpeg',
+                        0.95
+                    );
+                };
 
-                img.src = src;
-            }
-        );
-    }
-
-})();
-</script>
+            img.src = src;
+        });
+}
+  </script>
   </body>
 </html>
